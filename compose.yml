@@ -2,6 +2,7 @@ name: guessing-game
 
 services:
   frontend:
+    network_mode: bridge
     container_name: guessfront
     build:
       context: frontend
@@ -13,6 +14,7 @@ services:
       - "tech.dnsmanager.domain=example"
 
   backend:
+    network_mode: bridge
     container_name: guessback
     build:
       context: backend
