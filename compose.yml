@@ -1,0 +1,26 @@
+name: guessing-game
+
+services:
+  frontend:
+    container_name: guessfront
+    build:
+      context: frontend
+    depends_on:
+      - backend
+    expose:
+      - "3000"
+    labels:
+      - "tech.dnsmanager.domain=example"
+
+  backend:
+    container_name: guessback
+    build:
+      context: backend
+    expose:
+      - "7133"
+    labels:
+      - "tech.dnsmanager.domain=exampleapi"
+
+networks:
+  default:
+    driver: bridge
